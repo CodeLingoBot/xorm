@@ -883,7 +883,7 @@ func (cfg *goracleDriver) Parse(driverName, dataSourceName string) (*core.Uri, e
 type oci8Driver struct {
 }
 
-//dataSourceName=user/password@ipv4:port/dbname
+// Parse; dataSourceName=user/password@ipv4:port/dbname
 //dataSourceName=user/password@[ipv6]:port/dbname
 func (p *oci8Driver) Parse(driverName, dataSourceName string) (*core.Uri, error) {
 	db := &core.Uri{DbType: core.ORACLE}

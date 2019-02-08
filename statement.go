@@ -225,7 +225,7 @@ func (statement *Statement) setRefBean(bean interface{}) error {
 	return nil
 }
 
-// Auto generating update columnes and values according a struct
+// buildUpdates; Auto generating update columnes and values according a struct
 func (statement *Statement) buildUpdates(bean interface{},
 	includeVersion, includeUpdated, includeNil,
 	includeAutoIncr, update bool) ([]string, []interface{}) {
@@ -563,17 +563,17 @@ func (statement *Statement) SetExpr(column string, expression string) *Statement
 	return statement
 }
 
-// Generate  "Update ... Set column = column + arg" statement
+// getInc; Generate  "Update ... Set column = column + arg" statement
 func (statement *Statement) getInc() map[string]incrParam {
 	return statement.incrColumns
 }
 
-// Generate  "Update ... Set column = column - arg" statement
+// getDec; Generate  "Update ... Set column = column - arg" statement
 func (statement *Statement) getDec() map[string]decrParam {
 	return statement.decrColumns
 }
 
-// Generate  "Update ... Set column = {expression}" statement
+// getExpr; Generate  "Update ... Set column = {expression}" statement
 func (statement *Statement) getExpr() map[string]exprParam {
 	return statement.exprColumns
 }

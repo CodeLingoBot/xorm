@@ -85,7 +85,7 @@ func (session *Session) byte2Time(col *core.Column, data []byte) (outTime time.T
 	return session.str2Time(col, string(data))
 }
 
-// convert a db data([]byte) to a field value
+// bytes2Value; convert a db data([]byte) to a field value
 func (session *Session) bytes2Value(col *core.Column, fieldValue *reflect.Value, data []byte) error {
 	if structConvert, ok := fieldValue.Addr().Interface().(core.Conversion); ok {
 		return structConvert.FromDB(data)
@@ -532,7 +532,7 @@ func (session *Session) bytes2Value(col *core.Column, fieldValue *reflect.Value,
 	return nil
 }
 
-// convert a field value of a struct to interface for put into db
+// value2Interface; convert a field value of a struct to interface for put into db
 func (session *Session) value2Interface(col *core.Column, fieldValue reflect.Value) (interface{}, error) {
 	if fieldValue.CanAddr() {
 		if fieldConvert, ok := fieldValue.Addr().Interface().(core.Conversion); ok {

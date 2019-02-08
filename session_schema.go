@@ -180,7 +180,7 @@ func (session *Session) isTableEmpty(tableName string) (bool, error) {
 	return total == 0, nil
 }
 
-// find if index is exist according cols
+// isIndexExist2; find if index is exist according cols
 func (session *Session) isIndexExist2(tableName string, cols []string, unique bool) (bool, error) {
 	indexes, err := session.engine.dialect.GetIndexes(tableName)
 	if err != nil {

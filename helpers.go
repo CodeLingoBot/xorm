@@ -15,7 +15,7 @@ import (
 	"github.com/go-xorm/core"
 )
 
-// str2PK convert string value to primary key value according to tp
+// str2PKValue; convert string value to primary key value according to tp
 func str2PKValue(s string, tp reflect.Type) (reflect.Value, error) {
 	var err error
 	var result interface{}
